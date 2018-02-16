@@ -26,7 +26,8 @@
 /* =====================
   Define a resetMap function to remove markers from the map and clear the array of markers
 ===================== */
-var resetMap = function() {
+var resetMap = function() { return _.map(myMarkers, function (marker) {map.removeLayer(marker);});
+myMarkers = [];
   /* =====================
     Fill out this function definition
   ===================== */
@@ -41,6 +42,8 @@ var getAndParseData = function() {
   /* =====================
     Fill out this function definition
   ===================== */
+  var x = $.ajax("https://raw.githubusercontent.com/CPLN-692-401/datasets/master/json/philadelphia-crime-snippet.json")
+  x.then(function(res){ return JSON.parse(res)})
 };
 
 /* =====================
@@ -51,4 +54,7 @@ var plotData = function() {
   /* =====================
     Fill out this function definition
   ===================== */
+  var plotData = function(list) {
+      return _.map(list, function (marker) {marker.addTo(map)})
+     };
 };

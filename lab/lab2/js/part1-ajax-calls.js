@@ -3,11 +3,8 @@
  */
 
 
-
-
-
-
-
+var x = $.ajax("https://raw.githubusercontent.com/CPLN-692-401/datasets/master/json/philadelphia-crime-snippet.json")
+x.then(function(res){console.log(JSON.parse(res))})
 
 var map = L.map('map', {
   center: [39.9522, -75.1639],
@@ -22,4 +19,3 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 }).addTo(map);
 
 // L.terminator().addTo(map)
-
